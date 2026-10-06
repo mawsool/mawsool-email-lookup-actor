@@ -1,7 +1,7 @@
 import { log } from 'apify';
 import type { LookupApiResponse } from './types.js';
 
-const LOOKUP_ROUTE = 'deep-v2';
+const LOOKUP_ROUTE = 'lookup';
 const DEFAULT_PRIMARY_BASE_URL = '';
 const DEFAULT_FALLBACK_BASE_URL = '';
 const RETRY_DELAY_MS = 1000;

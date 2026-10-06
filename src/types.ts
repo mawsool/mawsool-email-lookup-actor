@@ -23,7 +23,7 @@ export interface ProfilePositions {
     positionHistory?: unknown[];
 }
 
-/** Full profile object returned by Mawsool deep-v2 API on exact match. */
+/** Full profile object returned by Mawsool lookup on exact match. */
 export interface ProfileResult {
     id?: string;
     profileId?: string;
