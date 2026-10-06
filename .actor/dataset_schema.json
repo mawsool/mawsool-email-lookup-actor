@@ -1,14 +1,14 @@
 {
     "actorSpecification": 1,
     "title": "Verified LinkedIn profiles",
-    "description": "Full Mawsool deep-v2 output — flat columns for CSV export.",
+    "description": "Full Mawsool lookup output — flat columns for CSV export.",
     "fields": {
         "type": "object",
         "properties": {
             "email": { "type": "string", "title": "Email", "example": "jane.doe@acme.com" },
             "hasLinkedIn": { "type": "boolean", "title": "LinkedIn verified", "example": true },
             "matchType": { "type": "string", "title": "Match type", "description": "exact or none", "example": "exact" },
-            "method": { "type": "string", "title": "Lookup method", "example": "deep-v2" },
+            "method": { "type": "string", "title": "Lookup method", "example": "lookup" },
             "profileId": { "type": "string", "title": "Profile ID", "example": "ACoAAB..." },
             "fullName": { "type": "string", "title": "Full name", "example": "Jane Doe" },
             "firstName": { "type": "string", "title": "First name", "example": "Jane" },
