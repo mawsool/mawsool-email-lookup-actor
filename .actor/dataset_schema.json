@@ -1,0 +1,176 @@
+{
+    "actorSpecification": 1,
+    "title": "Verified LinkedIn profiles",
+    "description": "Full Mawsool deep-v2 output — flat columns for CSV export.",
+    "fields": {
+        "type": "object",
+        "properties": {
+            "email": { "type": "string", "title": "Email", "example": "jane.doe@acme.com" },
+            "hasLinkedIn": { "type": "boolean", "title": "LinkedIn verified", "example": true },
+            "matchType": { "type": "string", "title": "Match type", "description": "exact or none", "example": "exact" },
+            "method": { "type": "string", "title": "Lookup method", "example": "deep-v2" },
+            "profileId": { "type": "string", "title": "Profile ID", "example": "ACoAAB..." },
+            "fullName": { "type": "string", "title": "Full name", "example": "Jane Doe" },
+            "firstName": { "type": "string", "title": "First name", "example": "Jane" },
+            "lastName": { "type": "string", "title": "Last name", "example": "Doe" },
+            "headline": { "type": "string", "title": "Headline", "example": "VP Sales at Acme Inc" },
+            "summary": { "type": "string", "title": "Summary / bio", "example": "Building products..." },
+            "linkedinUrl": { "type": "string", "title": "LinkedIn URL", "example": "https://www.linkedin.com/in/janedoe" },
+            "pictureUrl": { "type": "string", "title": "Profile photo URL" },
+            "company": { "type": "string", "title": "Company", "example": "Acme Inc" },
+            "location": { "type": "string", "title": "Location", "example": "New York, NY" },
+            "isPublic": { "type": "string", "title": "Is public profile", "example": "true" },
+            "localeCountry": { "type": "string", "title": "Locale country", "example": "US" },
+            "localeLanguage": { "type": "string", "title": "Locale language", "example": "en" },
+            "educationsCount": { "type": "integer", "title": "Educations count", "example": 2 },
+            "positionsCount": { "type": "integer", "title": "Positions count", "example": 4 },
+            "skillsCount": { "type": "integer", "title": "Skills count", "example": 12 },
+            "skills": { "type": "string", "title": "Skills", "description": "Semicolon-separated skill names", "example": "JavaScript; TypeScript" },
+            "educationHistory": { "type": "string", "title": "Education history (JSON)", "description": "JSON array of education records" },
+            "positionHistory": { "type": "string", "title": "Position history (JSON)", "description": "JSON array of work history records" },
+            "profileRawJson": { "type": "string", "title": "Raw profile JSON", "description": "Complete profile object exactly as returned by API." },
+            "profileFlattenedJson": { "type": "string", "title": "Flattened profile JSON", "description": "Flattened key-value view of all profile fields." },
+            "checkedAt": { "type": "string", "title": "Verified at", "example": "2026-06-29T12:00:00.000Z" },
+            "success": { "type": "boolean", "title": "Lookup succeeded", "example": true },
+            "error": { "type": "string", "title": "Error message" },
+            "statusCode": { "type": "integer", "title": "HTTP status", "example": 200 }
+        },
+        "required": ["email", "hasLinkedIn", "success"]
+    },
+    "views": {
+        "contacts": {
+            "title": "Enriched contacts",
+            "description": "CRM-ready columns — export as CSV or Excel.",
+            "transformation": {
+                "fields": [
+                    "email",
+                    "hasLinkedIn",
+                    "matchType",
+                    "fullName",
+                    "firstName",
+                    "lastName",
+                    "headline",
+                    "linkedinUrl",
+                    "company",
+                    "location",
+                    "pictureUrl",
+                    "checkedAt"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "email": { "label": "Email", "format": "text" },
+                    "hasLinkedIn": { "label": "LinkedIn verified", "format": "boolean" },
+                    "matchType": { "label": "Match type", "format": "text" },
+                    "fullName": { "label": "Full name", "format": "text" },
+                    "firstName": { "label": "First name", "format": "text" },
+                    "lastName": { "label": "Last name", "format": "text" },
+                    "headline": { "label": "Headline", "format": "text" },
+                    "linkedinUrl": { "label": "LinkedIn URL", "format": "link" },
+                    "company": { "label": "Company", "format": "text" },
+                    "location": { "label": "Location", "format": "text" },
+                    "pictureUrl": { "label": "Photo URL", "format": "link" },
+                    "checkedAt": { "label": "Verified at", "format": "date" }
+                }
+            }
+        },
+        "profileDetails": {
+            "title": "Full profile data",
+            "description": "All profile fields from the API including skills, education, and work history.",
+            "transformation": {
+                "fields": [
+                    "email",
+                    "hasLinkedIn",
+                    "matchType",
+                    "profileId",
+                    "fullName",
+                    "firstName",
+                    "lastName",
+                    "headline",
+                    "summary",
+                    "linkedinUrl",
+                    "pictureUrl",
+                    "company",
+                    "location",
+                    "isPublic",
+                    "localeCountry",
+                    "localeLanguage",
+                    "educationsCount",
+                    "positionsCount",
+                    "skillsCount",
+                    "skills",
+                    "educationHistory",
+                    "positionHistory",
+                    "profileRawJson",
+                    "profileFlattenedJson",
+                    "checkedAt"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "email": { "label": "Email", "format": "text" },
+                    "hasLinkedIn": { "label": "LinkedIn verified", "format": "boolean" },
+                    "matchType": { "label": "Match type", "format": "text" },
+                    "profileId": { "label": "Profile ID", "format": "text" },
+                    "fullName": { "label": "Full name", "format": "text" },
+                    "headline": { "label": "Headline", "format": "text" },
+                    "summary": { "label": "Summary", "format": "text" },
+                    "linkedinUrl": { "label": "LinkedIn URL", "format": "link" },
+                    "skills": { "label": "Skills", "format": "text" },
+                    "educationHistory": { "label": "Education (JSON)", "format": "text" },
+                    "positionHistory": { "label": "Positions (JSON)", "format": "text" },
+                    "checkedAt": { "label": "Verified at", "format": "date" }
+                }
+            }
+        },
+        "full": {
+            "title": "All fields (incl. errors)",
+            "description": "Complete export — every column including lookup status.",
+            "transformation": {
+                "fields": [
+                    "email",
+                    "hasLinkedIn",
+                    "matchType",
+                    "method",
+                    "profileId",
+                    "fullName",
+                    "firstName",
+                    "lastName",
+                    "headline",
+                    "summary",
+                    "linkedinUrl",
+                    "pictureUrl",
+                    "company",
+                    "location",
+                    "isPublic",
+                    "localeCountry",
+                    "localeLanguage",
+                    "educationsCount",
+                    "positionsCount",
+                    "skillsCount",
+                    "skills",
+                    "educationHistory",
+                    "positionHistory",
+                    "profileRawJson",
+                    "profileFlattenedJson",
+                    "checkedAt",
+                    "success",
+                    "error",
+                    "statusCode"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "email": { "label": "Email", "format": "text" },
+                    "hasLinkedIn": { "label": "LinkedIn verified", "format": "boolean" },
+                    "success": { "label": "Success", "format": "boolean" },
+                    "error": { "label": "Error", "format": "text" },
+                    "statusCode": { "label": "HTTP status", "format": "number" }
+                }
+            }
+        }
+    }
+}

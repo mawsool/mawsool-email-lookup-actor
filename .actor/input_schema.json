@@ -1,0 +1,60 @@
+{
+    "title": "Find LinkedIn from Email — Reverse Email Lookup",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "emails": {
+            "title": "Email addresses (find LinkedIn profile for each)",
+            "type": "array",
+            "description": "Paste work or personal emails to run reverse email lookup. Returns the verified LinkedIn profile when an exact match exists — name, headline, company, URL. Ideal for sales enrichment, recruiting, and CRM contact enrichment. Upload from CSV or paste a list.",
+            "editor": "stringList",
+            "prefill": [
+                "oday.ali.jo@gmail.com",
+                "osamaabdelhadi5@gmail.com"
+            ],
+            "items": {
+                "type": "string"
+            }
+        },
+        "maxEmails": {
+            "title": "Max emails per run (cost control)",
+            "type": "integer",
+            "description": "Cap how many emails to process in one run. Default 100. Maximum 100,000. Large lists continue automatically if the run stops.",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 100000
+        },
+        "emailsCsv": {
+            "title": "Or paste emails",
+            "type": "string",
+            "description": "Paste emails separated by commas, spaces, or new lines. One column is enough.",
+            "editor": "textarea"
+        },
+        "fileUrl": {
+            "title": "Or upload a file of emails",
+            "type": "string",
+            "description": "Upload a CSV or text file. Every email address in the file is used.",
+            "editor": "fileupload"
+        },
+        "concurrency": {
+            "title": "Concurrent lookups",
+            "type": "integer",
+            "description": "How many emails to look up at the same time. Default 10.",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 40
+        },
+        "resumeId": {
+            "title": "Resume ID (optional)",
+            "type": "string",
+            "description": "Reuse this ID to skip emails that already succeeded in an earlier run.",
+            "editor": "textfield"
+        },
+        "freshStart": {
+            "title": "Look up finished emails again",
+            "type": "boolean",
+            "description": "Turn this on to ignore saved progress and look up the whole list again.",
+            "default": false
+        }
+    }
+}

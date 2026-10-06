@@ -1,0 +1,37 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "mawsool-email-linkedin-lookup",
+  "title": "Email to LinkedIn Finder | Reverse Lookup",
+  "description": "Find LinkedIn profiles from email addresses. Reverse email lookup returns verified name, headline, company, location, skills & LinkedIn URL. Exact matches only \u2014 no guessing. Built for sales outreach, recruiting, CRM enrichment, Clay & HubSpot. Export CSV/JSON. Pay per email.",
+  "seoTitle": "Find LinkedIn Profile from Email Address",
+  "seoDescription": "Reverse email lookup: find LinkedIn from any email. Get name, title, company & profile URL. Exact matches only. Export CSV. Pay per email on Apify.",
+  "categories": [
+    "LEAD_GENERATION",
+    "SOCIAL_MEDIA"
+  ],
+  "version": "2.2",
+  "buildTag": "latest",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultRunOptions": {
+    "build": "latest",
+    "timeoutSecs": 86400,
+    "memoryMbytes": 512
+  },
+  "environmentVariables": {
+    "MAWSOOL_API_KEY": "@mawsoolApiKeyPrimary",
+    "MAWSOOL_API_FALLBACK_KEY": "@mawsoolApiKey"
+  },
+  "meta": {
+    "templateId": "ts-empty",
+    "generatedBy": "Cursor Agent"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "pricing": "./pay_per_event.json",
+  "dockerfile": "../Dockerfile"
+}
