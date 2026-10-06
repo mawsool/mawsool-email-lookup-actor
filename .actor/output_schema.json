@@ -1,0 +1,19 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Email to LinkedIn lookup output",
+    "description": "Verified reverse email lookup results from Mawsool. Each dataset row is one email with flat columns suitable for CSV export and CRM import.",
+    "properties": {
+        "contacts": {
+            "type": "string",
+            "title": "Enriched contacts",
+            "description": "Flat table of verified LinkedIn data per email. Export as CSV or JSON from the dataset.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=contacts"
+        },
+        "runSummary": {
+            "type": "string",
+            "title": "Run summary",
+            "description": "Counts of processed, found, and failed lookups for this run.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+        }
+    }
+}
